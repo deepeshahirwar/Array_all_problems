@@ -1,0 +1,47 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {  
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL); 
+
+        // brote force approch
+    //       for(int i=0; i<nums.size(); i++){ 
+    //      for(int j=i+1; j<nums.size(); j++){ //2 7 11 15 target=9 
+    //          if(nums[j]==target - nums[i]){ 
+    //              return {i,j};
+    //          } 
+    //      }
+    //     } 
+    //   return {};   
+       
+       //optimal appaoch (binary search)  
+        int n = nums.size();
+        
+        // making the nested list
+        std::vector<std::pair<int,int>> a {};
+        for (int i = 0; i < n; i++) {
+            a.push_back(std::make_pair(nums[i], i));
+        }
+         std::sort(a.begin(), a.end()); 
+      // sort(nums.begin(), nums.end());
+       int start=0; 
+       int end =nums.size()-1; 
+        
+        while(start < end){
+            int currSum = a[start].first +a[end].first; 
+             
+             if(currSum == target){
+                return {a[i].second, a[j].second};
+             }
+             
+             else if(currSum < target){ 
+             start++;
+             } 
+             else 
+             {  end--;  
+
+             }
+        }
+  return {};
+    }
+};
