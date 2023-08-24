@@ -1,0 +1,17 @@
+class Solution {
+public: 
+    int thirdMax(vector<int>& nums) { 
+         
+       set<int>st;
+      for(auto i : nums ){ 
+        st.insert(i); 
+         
+         if(st.size() > 3){  
+           //delete starting element of set
+           st.erase(st.begin());
+         }
+      }  
+  
+    return st.size()==3 ? *st.begin() : *st.rbegin();   
+    }
+};
