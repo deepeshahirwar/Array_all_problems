@@ -1,11 +1,11 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) { 
-     int n = nums.size();
-    if (n <= 1) return n; // If there are 0 or 1 elements, no duplicates to remove
+     int size = nums.size();
+    if (size <= 1) return n; // If there are 0 or 1 elements, no duplicates to remove
 
     int k = 1; // 'k' will keep track of the current index where the unique elements will be stored
-    for (int i = 1; i < n; i++) {
+    for (int i = 1; i < size; i++) {
         if (nums[i] != nums[k - 1]) {
             nums[k] = nums[i];
             k++;
